@@ -7,18 +7,25 @@
     
     <script>
         function checkData(){
-            console.log('Checking here!');
-            let width = document.pictureForm.picWidth.value;
-            let height = document.pictureForm.picHeight.value;
-            let radius = document.pictureForm.picRadius.value;
-            let circles = document.pictureForm.picCircles.value;
+            let width = parseInt(document.pictureForm.picWidth.value);
+            let height = parseInt(document.pictureForm.picHeight.value);
+            let radius = parseInt(document.pictureForm.picRadius.value);
+            let circles = parseInt(document.pictureForm.picCircles.value);
             console.log(width +', '+ height +', '+ radius +', '+ circles);
-            // if () {
-            //     return true;
-            // } else {
-            //     return false;
-            // }
-            return false;
+            if (circles == 0 || !width || !height || !radius) {
+                alert('Будьте добры заполнить все поля.');
+                return false;
+            } else if (radius > (width / 2) ||
+                    radius > (height / 2)) {
+                    alert('Радиус не может быть больше половины ширины или высоты изображения. Измените это значение.');
+                return false;
+            } else if (isNaN(width) || isNaN(height) || isNaN(radius)) {
+                alert('В полях ширина, высота и радиус могут быть только числовые значения.');
+                return false;
+            } else {
+                return true;
+            }
+
         }
     </script>  
 
@@ -35,7 +42,7 @@
                 <input for="picture-form" type="number" id="picture-height" name="picHeight" placeholder="height" min="100">
             </div>
             <div class="form-group">
-                <label for="picture-radius">Радиус изображения</label>
+                <label for="picture-radius">Радиус окружности</label>
                 <input for="picture-form" type="number" id="picture-radius" name="picRadius" placeholder="radius" min="0">
             </div>
             <div class="form-group">
