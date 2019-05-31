@@ -31,23 +31,31 @@
 
 </head>
 <body>
-    <div class="container">
-        <form action="create_image.php" name="pictureForm" method="get" onSubmit="return checkData()">
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+            <a class="navbar-brand" href="#">pngPictureGenarator</a>
+            </div>
+        </div>
+    </nav>
+    <br>
+    <div class="container justify-content-center">
+        <form class="form-inlin justify-content-center" action="create_image.php" name="pictureForm" method="get" onSubmit="return checkData()">
             <div class="form-group">
                 <label for="picture-width">Ширина изображения</label>
-                <input for="picture-form" type="number" id="picture-width" name="picWidth" placeholder="width" min="100">
+                <input class="form-control" for="picture-form" type="number" id="picture-width" name="picWidth" placeholder="width" min="100">
             </div>
             <div class="form-group">
-                <label for="picture-height">Высота изображения</label>
-                <input for="picture-form" type="number" id="picture-height" name="picHeight" placeholder="height" min="100">
+                <label  for="picture-height">Высота изображения</label>
+                <input class="form-control" for="picture-form" type="number" id="picture-height" name="picHeight" placeholder="height" min="100">
             </div>
             <div class="form-group">
-                <label for="picture-radius">Радиус окружности</label>
-                <input for="picture-form" type="number" id="picture-radius" name="picRadius" placeholder="radius" min="0">
+                <label  for="picture-radius">Радиус окружности</label>
+                <input class="form-control" for="picture-form" type="number" id="picture-radius" name="picRadius" placeholder="radius" min="0">
             </div>
             <div class="form-group">
-                <label for="picture-circles">Количество окружностей</label>
-                <select for="picture-form" id="picture-circles" name="picCircles" class="form-control" style="max-width:50%">
+                <label  for="picture-circles">Количество окружностей</label>
+                <select class="form-control" for="picture-form" id="picture-circles" name="picCircles" class="form-control" >
                     <option selected disabled value="0">Выберите количество</option>
                     <option value="5">5</option>
                     <option value="10">10</option>
@@ -56,34 +64,18 @@
                 </select>
             </div>
             
-            <button type="submit" class="btn btn-primary">Сгенерировать изображение</button>
+            <button type="submit" class="btn btn-primary btn-lg btn-block">Сгенерировать изображение</button>
             <!-- onclick="checkData();" -->
         </form>
     </div>
+    <br>
+    <footer class="page-footer font-small blue">
+        <div class="footer-copyright text-right py-3">© inazarin 2019
+        </div>
+    </footer>
 </body>
 </html>
 
 
 
 <?php
-// phpinfo();
-// header ('Content-Type: image/png');
-
-// $x = 420;
-// $y = 320;
-// $image = imagecreatetruecolor($x, $y);
-// // $white = imagecolorallocate($image, 0, 0, 0);
-// $text_color = imagecolorallocate($image, 233, 14, 91);
-// imagestring($image, 1, 5, 5,  'Простая Текстовая Строка', $text_color);
-// imagepng($image);
-// //imagedestroy($image);
-
-/* php manual */
-// header ('Content-Type: image/png');
-// $im = @imagecreatetruecolor(120, 20)
-//       or die('Невозможно инициализировать GD поток');
-// $text_color = imagecolorallocate($im, 233, 14, 91);
-// imagestring($im, 1, 5, 5,  'Simple text here', $text_color);
-// imagepng($im);
-// imagedestroy($im);
-?>
